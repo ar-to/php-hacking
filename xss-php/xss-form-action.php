@@ -1,6 +1,6 @@
 <?php 
 	//Needed to bypass Chrome's ERR_BLOCKED_BY_XSS_AUDITOR
-	// header('X-XSS-Protection:0'); 
+	//header('X-XSS-Protection:0'); 
 ?>
 <form method="post" action="authenticate.php" autocomplete="off">
 <!-- <form method="post" action="stolen.php" autocomplete="off"> -->
@@ -18,7 +18,8 @@
 </form>
 
 <h1>Search Results</h1>
-<h2>You searched for: <?php echo $_REQUEST['search'] ?></h2>
+<h2>You searched for (via $_GET): <?php echo $_Get['search'] ?></h2>
+<h2>You searched for (via $_REQUEST): <?php echo $_REQUEST['search'] ?></h2>
 <h2>You searched for (via Javascript): <span id="search-param"></span></h2>
 <?php echo "<script>
 /**
